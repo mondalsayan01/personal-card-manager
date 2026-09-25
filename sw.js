@@ -1,14 +1,18 @@
-const CACHE = 'cardhub-v2';
+const CACHE = 'cardhub-v4';
 const ASSETS = [
   './',
   './index.html',
   './styles.css',
   './script.js',
-  './manifest.json',
-  './icons/icon-192.png',
-  './icons/icon-512.png',
-  './icons/apple-touch-icon.png',
-  './icons/logo-inapp.png'
+  '/favicon/site.webmanifest',
+  '/favicon/apple-touch-icon.png',
+  '/favicon/favicon-16x16.png',
+  '/favicon/favicon-32x32.png',
+  '/favicon/favicon-96x96.png',
+  '/favicon/favicon.ico',
+  '/favicon/favicon.svg',
+  '/favicon/web-app-manifest-192x192.png',
+  '/favicon/web-app-manifest-512x512.png'
 ];
 
 self.addEventListener('install', (e) => {

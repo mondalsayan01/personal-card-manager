@@ -260,11 +260,6 @@ body {
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
-.brand-wrap {
-  display: flex;
-  align-items: baseline;
-  gap: 9px;
-}
 .chip {
   font-size: 10.5px;
   font-weight: 700;
@@ -314,15 +309,6 @@ body {
   font-weight: 800;
   font-size: 14px;
   letter-spacing: 0.5px;
-}
-.bank-chip {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.4px;
-  padding: 3px 9px;
-  border-radius: 8px;
-  background: rgba(0, 0, 0, 0.24);
-  color: rgba(255, 255, 255, 0.82);
 }
 .copy-ic {
   opacity: 0.85;

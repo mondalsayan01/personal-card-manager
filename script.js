@@ -46,7 +46,7 @@ function render(){
     card.style.background = c.color;
     card.dataset.id = c.id;
 
-    let inner = `<div class="top-row"><div class="brand-wrap"><div class="brand">${c.operator}</div><div class="bank-chip">${c.bank.split(' ')[0]}</div></div><div class="chip">${c.type}</div></div>`;
+    let inner = `<div class="top-row"><div class="brand">${c.bank.split(' ')[0]}</div><div class="chip">${c.type}</div></div>`;
     if(state === 'front'){
       inner += `
         <div class="front-info">
@@ -55,7 +55,7 @@ function render(){
           <div class="val">${maskNumber(c.number)} <span class="copy-ic" data-copy="${c.number}"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg></span></div>
           <div class="bottom-row">
             <div><div class="lbl">Expiry Date</div><div class="val" style="margin-bottom:0">${c.month}/${c.year.slice(-2)}</div></div>
-            <div class="bank-tag">${c.bank.split(' ')[0]}</div>
+            <div class="bank-tag">${c.operator}</div>
           </div>
         </div>`;
     }
