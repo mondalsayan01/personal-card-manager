@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Card Vault</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <div class="head">
+    <div class="who">
+      <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.5-4 4.2-6 7.5-6s6 2 7.5 6"/></svg></div>
+      <h1 id="welcomeName">Welcome, Sayan</h1>
+    </div>
+    <div class="addbtn" id="openAdd">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><rect x="2.5" y="6" width="19" height="13" rx="3"/><path d="M2.5 10h19"/><path d="M17.5 16h3M19 14.5v3"/></svg>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" data-type="credit">Credit Card</div>
+    <div class="tab" data-type="debit">Debit Card</div>
+  </div>
+
+  <div class="list" id="list"></div>
+</div>
+
+<!-- Add/Edit Sheet -->
+<div class="overlay" id="overlay">
+  <div class="sheet">
+    <h2 id="sheetTitle">Add Card</h2>
+    <div class="field">
+      <label>Bank</label>
+      <select id="f-bank">
+        <option>HDFC Bank</option><option>SBI</option><option>ICICI Bank</option>
+        <option>Axis Bank</option><option>Kotak Mahindra</option><option>Punjab National Bank</option>
+        <option>Bank of Baroda</option><option>IDFC First Bank</option><option>Yes Bank</option>
+        <option>IndusInd Bank</option><option>Other</option>
+      </select>
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label>Card Type</label>
+        <select id="f-type"><option value="credit">Credit</option><option value="debit">Debit</option></select>
+      </div>
+      <div class="field">
+        <label>Operator</label>
+        <select id="f-operator"><option>Visa</option><option>RuPay</option><option>Mastercard</option></select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Name on Card</label>
+      <input id="f-name" type="text" placeholder="SAYAN MONDAL" autocomplete="off">
+    </div>
+    <div class="field">
+      <label>Card Number</label>
+      <input id="f-number" type="text" inputmode="numeric" placeholder="2013 5245 5985 5425" autocomplete="off">
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label>Expiry Month</label>
+        <select id="f-month"></select>
+      </div>
+      <div class="field">
+        <label>Expiry Year</label>
+        <select id="f-year"></select>
+      </div>
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label>CVV</label>
+        <input id="f-cvv" type="text" inputmode="numeric" maxlength="4" placeholder="056" autocomplete="off">
+      </div>
+      <div class="field">
+        <label>PIN</label>
+        <input id="f-pin" type="text" inputmode="numeric" maxlength="6" placeholder="8122" autocomplete="off">
+      </div>
+    </div>
+    <div class="field">
+      <label>T-Pin <span style="opacity:.6; font-weight:400;">(optional)</span></label>
+      <input id="f-tpin" type="text" inputmode="numeric" maxlength="6" placeholder="9382" autocomplete="off">
+    </div>
+    <div class="field">
+      <label>Card Color</label>
+      <div class="colors" id="colorPicker">
+        <div class="swatch sel" data-c="#00B5EF" style="background:#00B5EF"></div>
+        <div class="swatch" data-c="#891B3F" style="background:#891B3F"></div>
+        <div class="swatch" data-c="#ED232A" style="background:#ED232A"></div>
+        <div class="swatch" data-c="#28282B" style="background:#28282B"></div>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn ghost" id="cancelBtn">Cancel</button>
+      <button class="btn primary" id="saveBtn">Save Card</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">Copied</div>
+
+<script src="script.js"></script>
+</body>
+</html>
