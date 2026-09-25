@@ -46,7 +46,7 @@ function render(){
     card.style.background = c.color;
     card.dataset.id = c.id;
 
-    let inner = `<div class="top-row"><div class="brand">${c.operator}</div><div class="chip">${c.type}</div></div>`;
+    let inner = `<div class="top-row"><div class="brand-wrap"><div class="brand">${c.operator}</div><div class="bank-chip">${c.bank.split(' ')[0]}</div></div><div class="chip">${c.type}</div></div>`;
     if(state === 'front'){
       inner += `
         <div class="front-info">
@@ -189,6 +189,14 @@ document.getElementById('openAdd').addEventListener('click', ()=>{
 document.getElementById('cancelBtn').addEventListener('click', ()=> overlay.classList.remove('show'));
 overlay.addEventListener('click', (e)=>{ if(e.target === overlay) overlay.classList.remove('show'); });
 
+function onlyLetters(e){ e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, ''); }
+function onlyDigits(e){ e.target.value = e.target.value.replace(/\D/g, ''); }
+document.getElementById('f-name').addEventListener('input', onlyLetters);
+document.getElementById('f-number').addEventListener('input', onlyDigits);
+document.getElementById('f-cvv').addEventListener('input', onlyDigits);
+document.getElementById('f-pin').addEventListener('input', onlyDigits);
+document.getElementById('f-tpin').addEventListener('input', onlyDigits);
+
 document.getElementById('colorPicker').addEventListener('click', (e)=>{
   const sw = e.target.closest('.swatch');
   if(!sw) return;
@@ -251,6 +259,24 @@ document.getElementById('saveBtn').addEventListener('click', ()=>{
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.type===activeTab));
   render();
 });
+
+// ---- security banner dismiss (remembered locally) ----
+const SEC_KEY = 'cardvault_sec_dismissed';
+const secBanner = document.getElementById('secBanner');
+if (secBanner) {
+  if (localStorage.getItem(SEC_KEY) === '1') secBanner.style.display = 'none';
+  document.getElementById('secClose')?.addEventListener('click', () => {
+    secBanner.style.display = 'none';
+    try { localStorage.setItem(SEC_KEY, '1'); } catch (e) {}
+  });
+}
+
+// ---- PWA service worker ----
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
 
 load();
 render();

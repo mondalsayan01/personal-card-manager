@@ -3,19 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Card Vault</title>
+<title>CardHub — Store card at your local storage</title>
+<meta name="description" content="CardHub stores your cards entirely in your browser's local storage. No servers, no cloud, no sync — your data never leaves this device.">
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#00B5EF">
+<meta name="background-color" content="#0a0b0d">
+
+<!-- iOS home screen -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CardHub">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+
+<!-- Android / general -->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
+
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="app">
   <div class="head">
     <div class="who">
-      <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.5-4 4.2-6 7.5-6s6 2 7.5 6"/></svg></div>
-      <h1 id="welcomeName">Welcome, Sayan</h1>
+      <img class="brand-logo" src="icons/logo-inapp.png" alt="CardHub logo">
+      <div class="brand-text">
+        <h1>CardHub</h1>
+        <p class="tagline">Store card at your local storage</p>
+      </div>
     </div>
     <div class="addbtn" id="openAdd">
       <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><rect x="2.5" y="6" width="19" height="13" rx="3"/><path d="M2.5 10h19"/><path d="M17.5 16h3M19 14.5v3"/></svg>
     </div>
+  </div>
+
+  <div class="security-banner" id="secBanner">
+    <div class="sec-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#00B5EF" stroke-width="1.8"><path d="M12 3l7 3v5c0 5-3.4 8.4-7 10-3.6-1.6-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+    </div>
+    <div class="sec-text">
+      <b>100% on this device.</b> Every card lives only in this browser's local storage — nothing is uploaded, no server, no cloud sync, no one else can see it.
+    </div>
+    <div class="sec-close" id="secClose">&times;</div>
   </div>
 
   <div class="tabs">
